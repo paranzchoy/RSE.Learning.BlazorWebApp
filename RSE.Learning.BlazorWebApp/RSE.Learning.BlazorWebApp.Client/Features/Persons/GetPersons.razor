@@ -1,6 +1,29 @@
 ﻿@page "/persons"
+@inherits GetPersonsBase
+
 <h3>Persons</h3>
 
+<MudGrid Justify="Justify.Center">
+    <MudItem xs="8">
+        <MudText Typo="Typo.h6">Persons</MudText>
+        <MudPaper Width="100%">
+            <MudTable Items="@Persons" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+                <HeaderContent>
+                    <MudTh>Last name</MudTh>
+                    <MudTh>First name</MudTh>
+                    <MudTh>Gender</MudTh>
+                    <MudTh>Address</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="last name">@context.LastName</MudTd>
+                    <MudTd DataLabel="first name">@context.FirstName</MudTd>
+                    <MudTd DataLabel="gender">@context.Gender</MudTd>
+                    <MudTd DataLabel="address">@context.Address</MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
 
 
 @code {
